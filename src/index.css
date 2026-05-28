@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* ─── Typography System ───────────────────────────────────── */
+:root {
+  --font-ar: 'Cairo', 'IBM Plex Sans Arabic', 'Tajawal', sans-serif;
+  --font-en: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-ar);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+[dir="ltr"] body,
+[dir="ltr"] {
+  font-family: var(--font-en);
+}
+
+[dir="rtl"] body,
+[dir="rtl"] {
+  font-family: var(--font-ar);
+}
+
+/* ─── Tailwind Theme Tokens ───────────────────────────────── */
+@theme {
+  --color-brand-green: #059669;
+  --color-brand-dark: #047857;
+  --color-brand-light: #34d399;
+  --color-brand-glow: rgba(16, 185, 129, 0.15);
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* ─── Scrollbar Styling ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.3);
+  border-radius: 999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+/* ─── Screen Reader Only ──────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Focus Ring Utilities ────────────────────────────────── */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* ─── Arabic Typography Fixes ─────────────────────────────── */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3 {
+  letter-spacing: 0;
+  word-spacing: 0.05em;
+}
+
+[dir="rtl"] .tracking-wider,
+[dir="rtl"] .tracking-wide {
+  letter-spacing: 0 !important;
+}
+
+[dir="rtl"] button {
+  text-align: center;
+}

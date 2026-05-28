@@ -52,9 +52,9 @@ export const ACTORS_BY_ID = Object.fromEntries(ACTORS.map(a => [a.id, a]));
 export const USE_CASES = [
   { id: 'uc_register', label: { ar: 'إنشاء حساب',          en: 'Register Account' },  group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
   { id: 'uc_login',    label: { ar: 'تسجيل الدخول',        en: 'Login' },             group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
-  { id: 'uc_profile',  label: { ar: 'إدارة الملف الشخصي',  en: 'Manage Profile' },    group: 'center', actors: ['supplier','farmer','specialist'] },
-  { id: 'uc_order',    label: { ar: 'إتمام الطلب',          en: 'Place Order' },       group: 'center', actors: ['farmer','buyer'] },
-  { id: 'uc_payment',  label: { ar: 'الدفع',                en: 'Make Payment' },      group: 'center', actors: ['farmer','buyer'] },
+  { id: 'uc_profile',  label: { ar: 'إدارة الملف الشخصي',  en: 'Manage Profile' },    group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_order',    label: { ar: 'إتمام الطلب',          en: 'Place Order' },       group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_payment',  label: { ar: 'الدفع',                en: 'Make Payment' },      group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
 
   { id: 'uc_admin1', label: { ar: 'إدارة الحسابات',       en: 'Manage Accounts' },     group: 'left', actors: ['admin'] },
   { id: 'uc_admin2', label: { ar: 'توثيق الموردين',       en: 'Verify Suppliers' },    group: 'left', actors: ['admin'] },

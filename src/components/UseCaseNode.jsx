@@ -42,7 +42,7 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
     const at = ACTOR_COLORS[highlightActorId];
     colorStyles = `${at.bg} ${at.border} text-slate-900 dark:text-white font-semibold shadow-md`;
   } else if (isActive) {
-    colorStyles = 'bg-emerald-600 dark:bg-emerald-800/80 border-emerald-700 dark:border-emerald-500/60 text-white dark:text-emerald-50 font-bold shadow-md dark:shadow-[0_4px_20px_rgba(16,185,129,0.25)]';
+    colorStyles = 'bg-emerald-600 dark:bg-emerald-600 border-emerald-700 dark:border-emerald-400 text-white font-bold shadow-md dark:shadow-[0_4px_20px_rgba(16,185,129,0.3)]';
   }
 
   const handleHover = useCallback(() => hover('useCase', useCase.id), [hover, useCase.id]);
@@ -66,7 +66,7 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
           <span className={`text-[8px] sm:text-[9px] font-mono px-2 py-0.5 rounded transition-all duration-300
             ${isDimmed ? 'opacity-20' : 'opacity-100'}
             ${(highlightActorId || isActive)
-              ? 'bg-emerald-600 dark:bg-emerald-800/80 text-white dark:text-emerald-100 font-bold shadow-sm dark:border dark:border-emerald-500/50'
+              ? 'bg-emerald-600 dark:bg-emerald-600 text-white font-bold shadow-sm dark:border dark:border-emerald-400/50'
               : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>
             {relationship.tag}
           </span>

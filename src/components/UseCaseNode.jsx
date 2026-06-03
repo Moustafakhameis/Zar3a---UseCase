@@ -42,7 +42,7 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
     const at = ACTOR_COLORS[highlightActorId];
     colorStyles = `${at.bg} ${at.border} text-slate-900 dark:text-white font-semibold shadow-md`;
   } else if (isActive) {
-    colorStyles = 'bg-emerald-600 dark:bg-emerald-500 border-emerald-700 dark:border-emerald-400 text-white shadow-lg shadow-emerald-500/25';
+    colorStyles = 'bg-[#00c896] dark:bg-[#00c896] border-[#00e6ac] dark:border-[#00e6ac] text-white font-bold shadow-[0_0_20px_rgba(0,200,150,0.6)] dark:shadow-[0_0_25px_rgba(0,200,150,0.8)]';
   }
 
   const handleHover = useCallback(() => hover('useCase', useCase.id), [hover, useCase.id]);
@@ -61,17 +61,17 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
       {/* Include/Extend connector */}
       {isChild && (
         <div className="flex flex-col items-center">
-          <div className={`h-4 border-l-2 border-dashed transition-colors duration-300
-            ${highlightActorId ? 'border-emerald-500' : 'border-slate-400 dark:border-slate-500'}`} />
+          <div className={`h-4 border-l-2 border-dashed transition-all duration-300
+            ${(highlightActorId || isActive) ? 'border-[#00c896] drop-shadow-[0_0_8px_rgba(0,200,150,0.8)]' : 'border-slate-400 dark:border-slate-500'}`} />
           <span className={`text-[8px] sm:text-[9px] font-mono px-2 py-0.5 rounded transition-all duration-300
             ${isDimmed ? 'opacity-20' : 'opacity-100'}
-            ${highlightActorId
-              ? 'bg-emerald-600 text-white dark:bg-emerald-500 font-bold shadow-sm'
+            ${(highlightActorId || isActive)
+              ? 'bg-[#00c896] text-white font-bold shadow-[0_0_10px_rgba(0,200,150,0.6)]'
               : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>
             {relationship.tag}
           </span>
-          <div className={`h-2 border-l-2 border-dashed transition-colors duration-300
-            ${highlightActorId ? 'border-emerald-500' : 'border-slate-400 dark:border-slate-500'}`} />
+          <div className={`h-2 border-l-2 border-dashed transition-all duration-300
+            ${(highlightActorId || isActive) ? 'border-[#00c896] drop-shadow-[0_0_8px_rgba(0,200,150,0.8)]' : 'border-slate-400 dark:border-slate-500'}`} />
         </div>
       )}
 

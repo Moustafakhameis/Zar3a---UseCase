@@ -66,8 +66,8 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
           <span className={`text-[8px] sm:text-[9px] font-mono px-2 py-0.5 rounded transition-all duration-300
             ${isDimmed ? 'opacity-20' : 'opacity-100'}
             ${(highlightActorId || isActive)
-              ? 'bg-emerald-600 dark:bg-emerald-600 text-white font-bold shadow-sm dark:border dark:border-emerald-400/50'
-              : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}>
+              ? 'bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-bold shadow-sm ring-1 ring-emerald-300/50 dark:ring-emerald-500/30'
+              : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 ring-1 ring-transparent'}`}>
             {relationship.tag}
           </span>
           <div className={`h-2 border-l-2 border-dashed transition-all duration-300

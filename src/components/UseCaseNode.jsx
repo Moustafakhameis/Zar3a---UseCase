@@ -10,13 +10,13 @@ const UseCaseNode = memo(function UseCaseNode({ useCase, language }) {
   const relationship = useMemo(() => getUseCaseRelationship(useCase.id), [useCase.id]);
   const isChild = !!relationship;
 
-  const isActive = active?.type === 'useCase' && active?.id === useCase.id;
+  const isActive = (active?.type === 'useCase' && active?.id === useCase.id) || active?.type === 'all_users';
   const isPinned = pinned?.type === 'useCase' && pinned?.id === useCase.id;
 
   let isDimmed = false;
   let highlightActorId = null;
 
-  if (active) {
+  if (active && active.type !== 'all_users') {
     if (active.type === 'actor') {
       if (useCase.actors.includes(active.id)) {
         highlightActorId = active.id;

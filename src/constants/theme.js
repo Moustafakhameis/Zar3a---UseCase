@@ -51,4 +51,14 @@ export const ACTOR_COLORS = {
     dotBg: 'bg-violet-500',
     gradient: 'from-violet-500 to-violet-600',
   },
+  base_user: {
+    color: 'text-indigo-600 dark:text-indigo-400',
+    bg: 'bg-indigo-50 dark:bg-indigo-900/40',
+    border: 'border-indigo-300 dark:border-indigo-500',
+    hoverBg: 'hover:bg-indigo-100 dark:hover:bg-indigo-800/50',
+    lineColor: '#6366f1',
+    lineColorDim: 'rgba(99,102,241,0.12)',
+    dotBg: 'bg-indigo-500',
+    gradient: 'from-indigo-500 to-indigo-600',
+  },
 };

@@ -66,6 +66,13 @@ const RelationshipLines = memo(function RelationshipLines() {
           if (data) result.push(data);
         });
       }
+    } else if (active.type === 'all_users') {
+      USE_CASES.forEach(uc => {
+        uc.actors.forEach(actorId => {
+          const data = getLineData(actorId, uc.id);
+          if (data) result.push(data);
+        });
+      });
     }
 
     setLines(result);

@@ -11,11 +11,11 @@ const ActorNode = memo(function ActorNode({ actor, label }) {
   const theme = ACTOR_COLORS[actor.id];
   const Icon = actor.icon;
 
-  const isActive = active?.type === 'actor' && active?.id === actor.id;
+  const isActive = (active?.type === 'actor' && active?.id === actor.id) || active?.type === 'all_users';
   const isPinned = pinned?.type === 'actor' && pinned?.id === actor.id;
 
   const isDimmed = useMemo(() => {
-    if (!active) return false;
+    if (!active || active.type === 'all_users') return false;
     if (active.type === 'actor' && active.id !== actor.id) return true;
     if (active.type === 'useCase') {
       const uc = USE_CASES_BY_ID[active.id];

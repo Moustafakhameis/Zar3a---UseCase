@@ -66,7 +66,7 @@ const ActorNode = memo(function ActorNode({ actor, label }) {
         <Icon size={26} strokeWidth={1.8} />
       </div>
 
-      <span className="font-bold text-slate-800 dark:text-slate-100 text-[13px] sm:text-sm text-center leading-snug">
+      <span className={`font-bold ${theme.color} text-[13px] sm:text-sm text-center leading-snug`}>
         {label}
       </span>
 

@@ -15,7 +15,6 @@ export const TRANSLATIONS = {
     farmer: 'المزارع',
     buyer: 'المشتري',
     specialist: 'الخبير الزراعي',
-    base_user: 'المستخدم الأساسي',
     dark: 'الوضع الداكن',
     light: 'الوضع الفاتح',
     architecture: 'المعماري',
@@ -33,7 +32,6 @@ export const TRANSLATIONS = {
     farmer: 'Farmer',
     buyer: 'Buyer',
     specialist: 'Specialist',
-    base_user: 'Base User',
     dark: 'Dark',
     light: 'Light',
     architecture: 'Architecture',
@@ -43,31 +41,23 @@ export const TRANSLATIONS = {
 
 // ─── Actors ──────────────────────────────────────────────────
 export const ACTORS = [
-  { id: 'admin',      role: 'Admin',      side: 'left',  icon: ShieldAlert,  inherits: ['base_user'] },
-  { id: 'supplier',   role: 'Supplier',   side: 'left',  icon: Truck,        inherits: ['base_user'] },
-  { id: 'base_user',  role: 'Base User',  side: 'left',  icon: Users,        inherits: [] },
-  { id: 'farmer',     role: 'Farmer',     side: 'right', icon: Sprout,       inherits: ['base_user'] },
-  { id: 'buyer',      role: 'Buyer',      side: 'right', icon: ShoppingCart, inherits: ['base_user'] },
-  { id: 'specialist', role: 'Specialist', side: 'right', icon: Stethoscope,  inherits: ['base_user'] },
+  { id: 'admin',      role: 'Admin',      side: 'left',  icon: ShieldAlert },
+  { id: 'supplier',   role: 'Supplier',   side: 'left',  icon: Truck },
+  { id: 'farmer',     role: 'Farmer',     side: 'right', icon: Sprout },
+  { id: 'buyer',      role: 'Buyer',      side: 'right', icon: ShoppingCart },
+  { id: 'specialist', role: 'Specialist', side: 'right', icon: Stethoscope },
 ];
 
 export const ACTORS_BY_ID = Object.fromEntries(ACTORS.map(a => [a.id, a]));
 
-// Helper to resolve inherited actors (if an actor has a use case, all actors that inherit from it also have access)
-// In this specific diagram, Admin, Supplier, Farmer, Buyer, Specialist all inherit from Base User.
-// So if a usecase belongs to base_user, it technically belongs to all of them.
-// We will explicitly map this below.
-
-const ALL_USERS = ['admin', 'supplier', 'farmer', 'buyer', 'specialist', 'base_user'];
-
 // ─── Use Cases ───────────────────────────────────────────────
 export const USE_CASES = [
-  // Base User Use Cases (Center group)
-  { id: 'uc_profile',  label: { ar: 'إدارة الملف الشخصي',  en: 'Manage Profile' },     group: 'center', actors: ['base_user'] },
-  { id: 'uc_chat_ai',  label: { ar: 'محادثة مع الذكاء',    en: 'Chat with AI' },       group: 'center', actors: ['base_user'] },
-  { id: 'uc_register', label: { ar: 'إنشاء حساب',          en: 'Register' },           group: 'center', actors: ['base_user'] },
-  { id: 'uc_login',    label: { ar: 'تسجيل الدخول',        en: 'Login' },              group: 'center', actors: ['base_user'] },
-  { id: 'uc_search_crops', label: { ar: 'البحث عن محاصيل', en: 'Search Crops' },       group: 'center', actors: ['base_user'] },
+  // Shared Use Cases (Center group)
+  { id: 'uc_profile',  label: { ar: 'إدارة الملف الشخصي',  en: 'Manage Profile' },     group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_chat_ai',  label: { ar: 'محادثة مع الذكاء',    en: 'Chat with AI' },       group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_register', label: { ar: 'إنشاء حساب',          en: 'Register' },           group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_login',    label: { ar: 'تسجيل الدخول',        en: 'Login' },              group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
+  { id: 'uc_search_crops', label: { ar: 'البحث عن محاصيل', en: 'Search Crops' },       group: 'center', actors: ['admin','supplier','farmer','buyer','specialist'] },
 
   // Admin Use Cases (Left group)
   { id: 'uc_admin1', label: { ar: 'إدارة الحسابات',       en: 'Manage All User Accounts' },   group: 'left', actors: ['admin'] },
